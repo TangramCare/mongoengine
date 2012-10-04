@@ -682,7 +682,7 @@ class DocumentMetaclass(type):
     @classmethod
     def __get_bases(cls, bases):
         for base in bases:
-            if base is object:
+            if not (issubclass(base, BaseDocument) or issubclass(base, BaseField)) or base is object:
                 continue
             yield base
             for child_base in cls.__get_bases(base.__bases__):
