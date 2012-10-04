@@ -7,12 +7,12 @@ import operator
 from collections import defaultdict
 from functools import partial
 
-from mongoengine.python_support import product, reduce
+from python_support import product, reduce
 
 import pymongo
 from bson.code import Code
 
-from mongoengine import signals
+import signals
 
 __all__ = ['queryset_manager', 'Q', 'InvalidQueryError',
            'DO_NOTHING', 'NULLIFY', 'CASCADE', 'DENY', 'PULL']
@@ -659,7 +659,7 @@ class QuerySet(object):
                     raise InvalidQueryError('Cannot resolve field "%s"'
                                                 % field_name)
             else:
-                from mongoengine.fields import ReferenceField, GenericReferenceField
+                from Luciferase.third_party.mongoengine.fields import ReferenceField, GenericReferenceField
                 if isinstance(field, (ReferenceField, GenericReferenceField)):
                     raise InvalidQueryError('Cannot perform join in mongoDB: %s' % '__'.join(parts))
                 if hasattr(getattr(field, 'field', None), 'lookup_member'):

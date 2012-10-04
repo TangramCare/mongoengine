@@ -1,5 +1,4 @@
-from mongoengine.connection import get_db
-
+from connection import get_db
 
 class query_counter(object):
     """ Query_counter contextmanager to get the number of queries. """

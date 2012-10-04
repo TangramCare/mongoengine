@@ -4,7 +4,7 @@ import pymongo
 import re
 
 from bson.dbref import DBRef
-from mongoengine import signals, queryset
+import signals, queryset
 
 from base import (DocumentMetaclass, TopLevelDocumentMetaclass, BaseDocument,
                   BaseDict, BaseList)

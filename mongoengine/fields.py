@@ -10,7 +10,7 @@ from operator import itemgetter
 import gridfs
 from bson import Binary, DBRef, SON, ObjectId
 
-from mongoengine.python_support import (PY3, bin_type, txt_type,
+from python_support import (PY3, bin_type, txt_type,
                                         str_types, StringIO)
 from base import (BaseField, ComplexBaseField, ObjectIdField,
                   ValidationError, get_document, BaseDocument)
