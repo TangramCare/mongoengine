@@ -4,7 +4,7 @@ import pymongo
 import re
 
 from bson.dbref import DBRef
-from mongoengine import signals, queryset
+from Luciferase.third_party.mongoengine import signals, queryset
 
 from base import (DocumentMetaclass, TopLevelDocumentMetaclass, BaseDocument,
                   BaseDict, BaseList)

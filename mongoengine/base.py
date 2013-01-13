@@ -10,8 +10,8 @@ from queryset import QuerySet, QuerySetManager
 from queryset import DoesNotExist, MultipleObjectsReturned
 from queryset import DO_NOTHING
 
-from mongoengine import signals
-from mongoengine.python_support import (PY3, UNICODE_KWARGS, txt_type,
+from Luciferase.third_party.mongoengine import signals
+from Luciferase.third_party.mongoengine.python_support import (PY3, UNICODE_KWARGS, txt_type,
                                         to_str_keys_recursive)
 
 import pymongo
@@ -671,7 +671,8 @@ class DocumentMetaclass(type):
     @classmethod
     def __get_bases(cls, bases):
         for base in bases:
-            if not issubclass(base, BaseDocument) or base is object:
+            #if not issubclass(base, BaseDocument) or base is object:
+	    if base is object:
                 continue
             yield base
             for child_base in cls.__get_bases(base.__bases__):
@@ -1502,16 +1503,16 @@ def _import_class(cls_name):
     deref_classes = ['DeReference']
 
     if cls_name in doc_classes:
-        from mongoengine import document as module
+        from Luciferase.third_party.mongoengine import document as module
         import_classes = doc_classes
     elif cls_name in field_classes:
-        from mongoengine import fields as module
+        from Luciferase.third_party.mongoengine import fields as module
         import_classes = field_classes
     elif cls_name in queryset_classes:
-        from mongoengine import queryset as module
+        from Luciferase.third_party.mongoengine import queryset as module
         import_classes = queryset_classes
     elif cls_name in deref_classes:
-        from mongoengine import dereference as module
+        from Luciferase.third_party.mongoengine import dereference as module
         import_classes = deref_classes
     else:
         raise ValueError('No import set for: ' % cls_name)

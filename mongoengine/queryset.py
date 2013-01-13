@@ -7,12 +7,12 @@ import operator
 from collections import defaultdict
 from functools import partial
 
-from mongoengine.python_support import product, reduce
+from Luciferase.third_party.mongoengine.python_support import product, reduce
 
 import pymongo
 from bson.code import Code
 
-from mongoengine import signals
+from Luciferase.third_party.mongoengine import signals
 
 __all__ = ['queryset_manager', 'Q', 'InvalidQueryError',
            'DO_NOTHING', 'NULLIFY', 'CASCADE', 'DENY', 'PULL']
